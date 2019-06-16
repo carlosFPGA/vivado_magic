@@ -32,7 +32,7 @@ class VivadoMagic(Magics):
   def _execute(self, cmd):
     self.child.expect('Vivado%', timeout=1800)
     self.child.sendline(cmd)
-    self.child.expect('Vivado%')
+    self.child.expect('Vivado%', timeout=1800)
     self.child.sendeof()
     print(self.child.after, self.child.before)
 
